@@ -1,0 +1,121 @@
+<html>
+    <head>
+        <title>English loanwords in Hong Kong Cantonese</title>
+        <meta charset="UTF-8" />
+        <!--jQuery CDN-->
+        <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+        <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+        <!--bootstrap CDN-->
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+        <style>
+        body {
+          height: 100%;
+          overflow-y: hidden;
+        }
+        /* Style the word_selector */
+        .word_selector {
+            float: left;
+            border: 1px solid #ccc;
+            background-color: #f1f1f1;
+            width: 30%;
+            height: 90%;
+        }
+
+        /* Style the buttons that are used to open the word selector */
+        .word_selector button {
+            display: block;
+            background-color: inherit;
+            color: black;
+            padding: 10px 6px;
+            width: 100%;
+            border: none;
+            outline: none;
+            text-align: left;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        /* Change background color of buttons on hover */
+        .word_selector button:hover {
+            background-color: #ddd;
+        }
+
+        /* Create an active/current "tab button" class */
+        .word_selector button.active {
+            background-color: #ccc;
+        }
+
+        /* Style the word_panel */
+        .word_panel {
+            float: left;
+            padding: 0px 12px;
+            border: 1px solid #ccc;
+            width: 70%;
+            border-left: none;
+            height: 100%;
+            display: none;
+        }
+        </style>
+        <!--Load Data-->
+        <script src="loadLines.js"></script>
+    </head>
+    <body onload='loadFile()'>
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+          <div class="container-fluid">
+            <div class="navbar-header">
+              <b class="navbar-brand" style='color:#fff;'>English Loanwords in Hong Kong Cantonese</b>
+            </div>
+            <ul class="nav navbar-nav">
+              <li class="active"><a data-toggle="tab" href="#home">Home</a></li>
+              <li><a data-toggle="tab" href="#list">List</a></li>
+              <li><a data-toggle="tab" href="#ref">Reference</a></li>
+              <li><a data-toggle="tab" href="#ack">Acknowledgements</a></li>
+            </ul>
+            <form class="navbar-form navbar-left" action="#" onsubmit="filterWordList($('#search_text').val())">
+              <div class="form-group">
+                <input id="search_text" type="text" class="form-control" placeholder="Search">
+              </div>
+              <button type="submit" class="btn btn-default">Search</button>
+            </form>
+          </div>
+        </nav>
+        <div class="tab-content" style='margin-top:50px; height: 100%;'>
+          <div id='home' class='tab-pane fade in active'>
+            <div class='container'>
+                <h3>INTRODUCTION</h3>
+                <p>Loanwords are interesting in that they not only provide a glimpse into language contact, they also reveal the process of how a language acquires new words.  The contact between English and Cantonese has led to the inclusion of a lot of English loanwords in the Cantonese lexicon.</p>  
+                <p>The loanwords of this website are based on Bauer and Wong (2008).  They have compiled a database comprising over 700 English loanwords documented in Hong Kong Cantonese over a time span of 180 years (Bauer and Wong 2008).  The source of this database is mainly printed materials, ranging from published dictionaries, books, academic journal articles, theses, and dissertations, to local newspapers, tabloid magazines, youth magazines, and internet forum discussion groups.  Of the 700+ lexical entries, 85% include only phonetically-transliterated syllables while the other 15% are made up of at least one phonetically-transliterated syllable and at least one Cantonese morphosyllable which bears some semantic relationship to the loanword.</p> 
+                <p>Each loanword entry consists of detailed annotation regarding its pronunciation, meaning in Cantonese, English source, sample sentences in which the loanword is used in Cantonese, as well as all the references in which the loanword has been documented.</p>
+                <p>It is hoped that the information provided here will show a dynamic and fascinating facet of Hong Kong Cantonese.</p>
+                <p>“The English Loanwords in Hong Kong Cantonese” website is developed by: <br>
+                Cathy S.P. Wong (Department of English)<br>
+                Roxana S.Y. Fung (Department of Chinese and Bilingual Studies)<br>
+                The Hong Kong Polytechnic University</p>
+                <p><em>Last update: October 2012, Reuploaded: June 2018</em></p>
+                <center>              
+                  <img src='polyu_logo.png' height="50" />
+                  <img src='engl_logo.png' height="50" />
+                </center>
+            </div>
+          </div>
+          <div id='list' class='tab-pane fade'>
+            <div id='wordlist' class='word_selector' style='overflow-y:scroll;'>
+            </div>
+          </div>
+          <div id='ref' class='tab-pane fade'>
+            <div id="pdf">
+              <object width="100%" height="100%" type="application/pdf" data="REF_ABBREV.pdf" id="pdf_content">
+                <p>The PDF cannot be displayed.</p>
+              </object>
+            </div>
+          </div>
+          <div id='ack' class='tab-pane fade'>
+            <div class='container'>
+                <h3>ACKNOWLEDGEMENTS</h3>
+                <p>This website is supported by the research project entitled “A Sociolinguistic Study on English Loanwords in Hong Kong Cantonese” (從社會學角度研究香港粵語中的英語借詞). It is a project jointly funded by the Department of English and the Dean’s Reserve of The Hong Kong Polytechnic University. The Principal Investigator of this project is Cathy S.P. Wong (ENGL) and the Co-Investigator is Roxana S.Y. Fung (CBS).</p><p>We would take this opportunity to thank a few friends. Without their assistance, this website would not have been made possible.</p><p>First and foremost, our heartfelt thanks must go to <strong>Dr. Robert S. Bauer</strong>. Bob has generously agreed to share the database (Bauer &amp; Wong 2008) with us. He has also given us advice on various parts of our research project.</p><p>We are also indebted to <strong>Christy Lai (Choi Ting)</strong> for her diligence and perseverance in keeping our project on target. It was great to have Christy working for us. Her work is very systematic and meticulous. We would also like to thank <strong>Abbey Wong (Ching Man)</strong> for completing the task of transferring the database into excel format.</p><p>Last but not least, <strong>William Chong (Wai Lam)</strong> is among the ones we must thank. William is the one who turns our ideas into this website.</p><img src="images/thankyou.gif" alt="thanks" width="25%" height="25%">    
+            </div>
+          </div>
+        </div>
+    </body>
+</html>
