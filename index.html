@@ -50,11 +50,11 @@
         /* Style the word_panel */
         .word_panel {
             float: left;
-            padding: 0px 12px;
+            padding: 10px 6px;
             border: 1px solid #ccc;
             width: 70%;
             border-left: none;
-            height: 100%;
+            height: 90%;
             display: none;
         }
         </style>
@@ -68,20 +68,20 @@
               <b class="navbar-brand" style='color:#fff;'>English Loanwords in Hong Kong Cantonese</b>
             </div>
             <ul class="nav navbar-nav">
-              <li class="active"><a data-toggle="tab" href="#home">Home</a></li>
-              <li><a data-toggle="tab" href="#list">List</a></li>
-              <li><a data-toggle="tab" href="#ref">Reference</a></li>
-              <li><a data-toggle="tab" href="#ack">Acknowledgements</a></li>
+              <li class="active"><a id="go_home" data-toggle="tab" href="#home">Home</a></li>
+              <li><a id="go_list" data-toggle="tab" href="#list">List</a></li>
+              <li><a id="go_ref" data-toggle="tab" href="#ref">Reference</a></li>
+              <li><a id="go_ack" data-toggle="tab" href="#ack">Acknowledgements</a></li>
             </ul>
-            <form class="navbar-form navbar-left" action="#" onsubmit="filterWordList($('#search_text').val())">
+            <form class="navbar-form navbar-left">
               <div class="form-group">
                 <input id="search_text" type="text" class="form-control" placeholder="Search">
               </div>
-              <button type="submit" class="btn btn-default">Search</button>
+              <div class="btn btn-warning" onclick="filterWordList($('#search_text').val()); openTab('list');">Search</div>
             </form>
           </div>
         </nav>
-        <div class="tab-content" style='margin-top:50px; height: 100%;'>
+        <div class="tab-content" style='margin-top:50px; padding:20px;  height: 100%;'>
           <div id='home' class='tab-pane fade in active'>
             <div class='container'>
                 <h3>INTRODUCTION</h3>

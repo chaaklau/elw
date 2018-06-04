@@ -6,7 +6,7 @@ String.prototype.replaceAll = function(search, replacement) {
 };
 
 function openTab(tab){
-  $('.nav-tabs a[href="#' + tab + '"]').tab('show');
+  $('#go_' + tab).tab('show');
 };
 
 function openWord(evt, wordName) {
