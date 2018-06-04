@@ -88,7 +88,7 @@ function filterWordList (text) {
 
     // Get all data, hide elements that do not contain 'text'
     for (i = 0; i < data.length; i++) {
-      if ((data[i].chars + data[i].hw).indexOf(text) != -1) {
+      if ((data[i].chars + data[i].hw + data[i].hw.replace(/[1-6]\//g,"")).indexOf(text) != -1) {
         document.getElementById('wt'+data[i].wordid).style.display = "block";
       }
       else {
